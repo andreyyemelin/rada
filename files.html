@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DRS RADA - מאגר קבצים</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    body {
+      background-color: #0b0f19;
+      background-image: 
+        radial-gradient(at 100% 0%, rgba(37, 99, 235, 0.12) 0px, transparent 50%),
+        radial-gradient(at 0% 100%, rgba(56, 189, 248, 0.08) 0px, transparent 50%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      color: #f8fafc;
+    }
+
+    header {
+      background: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: 14px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-logo {
+      height: 40px;
+      object-fit: contain;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .back-btn {
+      background: rgba(255, 255, 255, 0.05);
+      color: #38bdf8;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 7px 16px;
+      border-radius: 9999px;
+      font-size: 13.5px;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .back-btn:hover {
+      background: rgba(56, 189, 248, 0.15);
+      color: #ffffff;
+    }
+
+    main {
+      flex: 1;
+      padding: 40px 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .page-header {
+      margin-bottom: 28px;
+    }
+
+    .page-header h1 {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: #ffffff;
+    }
+
+    .page-header p {
+      color: #94a3b8;
+      font-size: 14.5px;
+      margin-top: 4px;
+    }
+
+    /* סרגל חיפוש וסינון */
+    .controls-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 24px;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .search-box {
+      flex: 1;
+      min-width: 260px;
+      position: relative;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 12px 18px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 14px;
+      background: rgba(15, 23, 42, 0.6);
+      color: #ffffff;
+      font-size: 14.5px;
+      outline: none;
+      transition: all 0.2s ease;
+    }
+
+    .search-box input:focus {
+      border-color: #38bdf8;
+      box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.15);
+      background: rgba(15, 23, 42, 0.8);
+    }
+
+    .filter-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #94a3b8;
+      padding: 8px 16px;
+      border-radius: 12px;
+      font-size: 13.5px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: rgba(56, 189, 248, 0.4);
+      color: #38bdf8;
+    }
+
+    /* טבלת קבצים */
+    .files-container {
+      background: rgba(15, 23, 42, 0.5);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: right;
+    }
+
+    th {
+      background: rgba(255, 255, 255, 0.03);
+      padding: 16px 20px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #cbd5e1;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    td {
+      padding: 16px 20px;
+      font-size: 14px;
+      color: #e2e8f0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      transition: background-color 0.2s ease;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:hover td {
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .file-name {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 500;
+    }
+
+    .file-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: rgba(56, 189, 248, 0.1);
+      color: #38bdf8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    .download-btn {
+      background: rgba(37, 99, 235, 0.2);
+      color: #60a5fa;
+      border: 1px solid rgba(37, 99, 235, 0.3);
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: inline-block;
+    }
+
+    .download-btn:hover {
+      background: #2563eb;
+      color: #ffffff;
+    }
+
+    .no-results {
+      padding: 40px;
+      text-align: center;
+      color: #64748b;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="radalogo.png" alt="DRS RADA" class="header-logo" onerror="this.style.display='none'">
+    
+    <div class="nav-actions">
+      <a href="main.html" class="back-btn">➔ חזרה לדף הבית</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-header">
+      <h1>מאגר קבצים וטפסים</h1>
+      <p>חיפוש, הורדה וצפייה במסמכים ארגוניים</p>
+    </div>
+
+    <!-- סרגל חיפוש ופילטרים -->
+    <div class="controls-bar">
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="חפש קובץ לפי שם...">
+      </div>
+      <div class="filter-tags">
+        <button class="filter-btn active" onclick="filterCategory('all')">הכל</button>
+        <button class="filter-btn" onclick="filterCategory('מסמכים')">מסמכים</button>
+        <button class="filter-btn" onclick="filterCategory('תוכנות')">תוכנות</button>
+        <button class="filter-btn" onclick="filterCategory('טפסים')">טפסים</button>
+      </div>
+    </div>
+
+    <!-- טבלת רשימת הקבצים -->
+    <div class="files-container">
+      <table>
+        <thead>
+          <tr>
+            <th>שם הקובץ</th>
+            <th>קטגוריה</th>
+            <th>גודל</th>
+            <th>תאריך עדכון</th>
+            <th>פעולה</th>
+          </tr>
+        </thead>
+        <tbody id="filesTableBody">
+        </tbody>
+      </table>
+      <div id="noResults" class="no-results">אין כרגע קבצים זמינים במערכת.</div>
+    </div>
+  </main>
+
+  <script>
+    const userCode = localStorage.getItem("userCode");
+    if (userCode !== "606598") {
+      window.location.href = "index.html";
+    }
+
+    // מערך קבצים ריק לבקשתך
+    const files = [];
+
+    let currentCategory = 'all';
+
+    function renderFiles() {
+      const tableBody = document.getElementById("filesTableBody");
+      const searchVal = document.getElementById("searchInput").value.toLowerCase();
+      const noResults = document.getElementById("noResults");
+      
+      tableBody.innerHTML = "";
+      let visibleCount = 0;
+
+      files.forEach(file => {
+        const matchesSearch = file.name.toLowerCase().includes(searchVal);
+        const matchesCategory = currentCategory === 'all' || file.category === currentCategory;
+
+        if (matchesSearch && matchesCategory) {
+          visibleCount++;
+          const row = document.createElement("tr");
+          row.innerHTML = `
+            <td>
+              <div class="file-name">
+                <div class="file-icon">${file.type}</div>
+                ${file.name}
+              </div>
+            </td>
+            <td>${file.category}</td>
+            <td>${file.size}</td>
+            <td>${file.date}</td>
+            <td><a href="${file.url}" class="download-btn" download>הורדה</a></td>
+          `;
+          tableBody.appendChild(row);
+        }
+      });
+
+      noResults.style.display = visibleCount === 0 ? "block" : "none";
+    }
+
+    function filterCategory(category) {
+      currentCategory = category;
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.innerText === (category === 'all' ? 'הכל' : category));
+      });
+      renderFiles();
+    }
+
+    document.getElementById("searchInput").addEventListener("input", renderFiles);
+
+    renderFiles();
+  </script>
+
+</body>
+</html>
