@@ -11,10 +11,10 @@
       padding: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     }
- 
+
     body {
       background-color: #0b0f19;
-      background-image:
+      background-image: 
         radial-gradient(at 100% 0%, rgba(37, 99, 235, 0.12) 0px, transparent 50%),
         radial-gradient(at 0% 100%, rgba(56, 189, 248, 0.08) 0px, transparent 50%);
       min-height: 100vh;
@@ -22,7 +22,7 @@
       flex-direction: column;
       color: #f8fafc;
     }
- 
+
     header {
       background: rgba(15, 23, 42, 0.7);
       backdrop-filter: blur(16px);
@@ -36,18 +36,18 @@
       top: 0;
       z-index: 100;
     }
- 
+
     .header-logo {
       height: 40px;
       object-fit: contain;
     }
- 
+
     .nav-actions {
       display: flex;
       align-items: center;
       gap: 12px;
     }
- 
+
     .back-btn {
       background: rgba(255, 255, 255, 0.05);
       color: #38bdf8;
@@ -60,12 +60,12 @@
       text-decoration: none;
       transition: all 0.2s ease;
     }
- 
+
     .back-btn:hover {
       background: rgba(56, 189, 248, 0.15);
       color: #ffffff;
     }
- 
+
     main {
       flex: 1;
       padding: 40px 24px;
@@ -73,24 +73,24 @@
       margin: 0 auto;
       width: 100%;
     }
- 
+
     .page-header {
       margin-bottom: 28px;
     }
- 
+
     .page-header h1 {
       font-size: 26px;
       font-weight: 700;
       letter-spacing: -0.5px;
       color: #ffffff;
     }
- 
+
     .page-header p {
       color: #94a3b8;
       font-size: 14.5px;
       margin-top: 4px;
     }
- 
+
     /* נתיב ניווט (Breadcrumbs) */
     .breadcrumb {
       display: flex;
@@ -99,27 +99,28 @@
       margin-bottom: 16px;
       font-size: 14px;
       color: #94a3b8;
+      flex-wrap: wrap;
     }
- 
+
     .breadcrumb span {
       cursor: pointer;
       color: #38bdf8;
       transition: color 0.2s ease;
     }
- 
+
     .breadcrumb span:hover {
       text-decoration: underline;
     }
- 
+
     .breadcrumb .current {
       color: #f8fafc;
       cursor: default;
     }
- 
+
     .breadcrumb .current:hover {
       text-decoration: none;
     }
- 
+
     /* סרגל חיפוש וסינון */
     .controls-bar {
       display: flex;
@@ -129,13 +130,13 @@
       justify-content: space-between;
       align-items: center;
     }
- 
+
     .search-box {
       flex: 1;
       min-width: 260px;
       position: relative;
     }
- 
+
     .search-box input {
       width: 100%;
       padding: 12px 18px;
@@ -147,19 +148,19 @@
       outline: none;
       transition: all 0.2s ease;
     }
- 
+
     .search-box input:focus {
       border-color: #38bdf8;
       box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.15);
       background: rgba(15, 23, 42, 0.8);
     }
- 
+
     .filter-tags {
       display: flex;
       gap: 8px;
       flex-wrap: wrap;
     }
- 
+
     .filter-btn {
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid rgba(255, 255, 255, 0.08);
@@ -170,13 +171,13 @@
       cursor: pointer;
       transition: all 0.2s ease;
     }
- 
+
     .filter-btn:hover, .filter-btn.active {
       background: rgba(56, 189, 248, 0.15);
       border-color: rgba(56, 189, 248, 0.4);
       color: #38bdf8;
     }
- 
+
     /* טבלת קבצים ותקיות */
     .files-container {
       background: rgba(15, 23, 42, 0.5);
@@ -186,13 +187,13 @@
       border-radius: 20px;
       overflow: hidden;
     }
- 
+
     table {
       width: 100%;
       border-collapse: collapse;
       text-align: right;
     }
- 
+
     th {
       background: rgba(255, 255, 255, 0.03);
       padding: 16px 20px;
@@ -201,7 +202,7 @@
       color: #cbd5e1;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
- 
+
     td {
       padding: 16px 20px;
       font-size: 14px;
@@ -209,31 +210,31 @@
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
       transition: background-color 0.2s ease;
     }
- 
+
     tr:last-child td {
       border-bottom: none;
     }
- 
+
     tr:hover td {
       background: rgba(255, 255, 255, 0.03);
     }
- 
+
     .file-name {
       display: flex;
       align-items: center;
       gap: 12px;
       font-weight: 500;
     }
- 
+
     .file-name.folder-clickable {
       cursor: pointer;
       color: #38bdf8;
     }
- 
+
     .file-name.folder-clickable:hover {
       text-decoration: underline;
     }
- 
+
     .file-icon {
       width: 36px;
       height: 36px;
@@ -244,16 +245,16 @@
       align-items: center;
       justify-content: center;
       font-weight: 700;
-      font-size: 12px;
+      font-size: 11px;
       text-transform: uppercase;
     }
- 
+
     .file-icon.folder-icon {
       background: rgba(251, 191, 36, 0.12);
       color: #fbbf24;
       font-size: 18px;
     }
- 
+
     .download-btn {
       background: rgba(37, 99, 235, 0.2);
       color: #60a5fa;
@@ -266,12 +267,12 @@
       transition: all 0.2s ease;
       display: inline-block;
     }
- 
+
     .download-btn:hover {
       background: #2563eb;
       color: #ffffff;
     }
- 
+
     .no-results {
       padding: 40px;
       text-align: center;
@@ -281,26 +282,26 @@
   </style>
 </head>
 <body>
- 
+
   <header>
     <img src="logo.png" alt="Desoutter" class="header-logo" onerror="this.style.display='none'">
-   
+    
     <div class="nav-actions">
       <a href="main.html" class="back-btn">➔ חזרה לדף הבית</a>
     </div>
   </header>
- 
+
   <main>
     <div class="page-header">
       <h1>מאגר קבצים וטפסים</h1>
       <p>חיפוש, הורדה וצפייה במסמכים ארגוניים</p>
     </div>
- 
+
     <!-- נתיב ניווט -->
     <div class="breadcrumb" id="breadcrumb">
       <span onclick="navigateToFolder(null)">ראשי</span>
     </div>
- 
+
     <!-- סרגל חיפוש ופילטרים -->
     <div class="controls-bar">
       <div class="search-box">
@@ -313,7 +314,7 @@
         <button class="filter-btn" onclick="filterCategory('טפסים')">טפסים</button>
       </div>
     </div>
- 
+
     <!-- טבלת רשימת הקבצים והתיקיות -->
     <div class="files-container">
       <table>
@@ -332,19 +333,20 @@
       <div id="noResults" class="no-results">אין כרגע קבצים או תיקיות זמינים.</div>
     </div>
   </main>
- 
+
   <script>
     const userCode = localStorage.getItem("userCode");
     if (userCode !== "606598") {
       window.location.href = "index.html";
     }
- 
+
     // התיקייה הנוכחית (null = התיקייה הראשית)
     let currentFolderId = null;
     let currentCategory = 'all';
- 
+
     // מבנה הנתונים: תיקיות וקבצים
     const fileSystem = [
+      // תיקייה 1
       {
         id: "folder_q3_2026",
         isFolder: true,
@@ -357,55 +359,104 @@
       {
         id: "file_cx_q3_2026",
         isFolder: false,
-        name: "מבדק Q3 2026 CX",
-        fileNameOnDisk: "מבדק CX 26.07.2026.xls",
+        name: "מבדק CX Q3 2026",
+        fileNameOnDisk: "CX26072026.xls",
         category: "מסמכים",
         size: "120KB",
         date: "26/07/2026",
         type: "xls",
-        url: "מבדק CX 26.07.2026.xls",
+        url: "CX26072026.xls",
         parentId: "folder_q3_2026"
+      },
+      // תיקייה ראשית 2
+      {
+        id: "folder_training_forms",
+        isFolder: true,
+        name: "טופס ביצוע הדרכה,הסמכה ובדיקת אפקטביות",
+        category: "טפסים",
+        size: "-",
+        date: "28/07/2026",
+        parentId: null
+      },
+      // תת-תיקייה בתוך תיקייה 2
+      {
+        id: "folder_scan_28_07_2026",
+        isFolder: true,
+        name: "סריקה 28.07.2026",
+        category: "טפסים",
+        size: "-",
+        date: "28/07/2026",
+        parentId: "folder_training_forms"
+      },
+      // קובץ PDF בתוך תת-התיקייה
+      {
+        id: "file_patp_ichr",
+        isFolder: false,
+        name: "PATP ICHR",
+        fileNameOnDisk: "PATP-ICHR.PDF",
+        category: "טפסים",
+        size: "-",
+        date: "28/07/2026",
+        type: "pdf",
+        url: "PATP-ICHR.PDF",
+        parentId: "folder_scan_28_07_2026"
       }
     ];
- 
+
+    function getFolderPath(folderId) {
+      const path = [];
+      let curr = fileSystem.find(item => item.id === folderId);
+      while (curr) {
+        path.unshift(curr);
+        curr = fileSystem.find(item => item.id === curr.parentId);
+      }
+      return path;
+    }
+
     function renderBreadcrumb() {
       const breadcrumb = document.getElementById("breadcrumb");
       if (!currentFolderId) {
         breadcrumb.innerHTML = `<span class="current">ראשי</span>`;
       } else {
-        const folder = fileSystem.find(item => item.id === currentFolderId);
-        breadcrumb.innerHTML = `
-          <span onclick="navigateToFolder(null)">ראשי</span>
-          <span>/</span>
-          <span class="current">${folder ? folder.name : ''}</span>
-        `;
+        const path = getFolderPath(currentFolderId);
+        let html = `<span onclick="navigateToFolder(null)">ראשי</span>`;
+        
+        path.forEach((folder, index) => {
+          html += ` <span>/</span> `;
+          if (index === path.length - 1) {
+            html += `<span class="current">${folder.name}</span>`;
+          } else {
+            html += `<span onclick="navigateToFolder('${folder.id}')">${folder.name}</span>`;
+          }
+        });
+        
+        breadcrumb.innerHTML = html;
       }
     }
- 
+
     function navigateToFolder(folderId) {
       currentFolderId = folderId;
       renderBreadcrumb();
       renderFiles();
     }
- 
+
     function renderFiles() {
       const tableBody = document.getElementById("filesTableBody");
       const searchVal = document.getElementById("searchInput").value.toLowerCase().trim();
       const noResults = document.getElementById("noResults");
-     
+      
       tableBody.innerHTML = "";
       let visibleCount = 0;
- 
+
       fileSystem.forEach(item => {
-        // בחיפוש חופשי מחפשים בכל המערכת; ללא חיפוש מציגים רק את תוכן התיקייה הנוכחית
         const inCurrentContext = searchVal !== "" ? true : (item.parentId === currentFolderId);
         const matchesSearch = item.name.toLowerCase().includes(searchVal);
         const matchesCategory = currentCategory === 'all' || item.category === currentCategory;
- 
+
         if (inCurrentContext && matchesSearch && matchesCategory) {
           visibleCount++;
           const row = document.createElement("tr");
- 
+
           if (item.isFolder) {
             row.innerHTML = `
               <td>
@@ -433,14 +484,14 @@
               <td><a href="${item.url}" class="download-btn" download="${item.fileNameOnDisk}">הורדה</a></td>
             `;
           }
- 
+
           tableBody.appendChild(row);
         }
       });
- 
+
       noResults.style.display = visibleCount === 0 ? "block" : "none";
     }
- 
+
     function filterCategory(category) {
       currentCategory = category;
       document.querySelectorAll('.filter-btn').forEach(btn => {
@@ -448,12 +499,12 @@
       });
       renderFiles();
     }
- 
+
     document.getElementById("searchInput").addEventListener("input", renderFiles);
- 
+
     renderBreadcrumb();
     renderFiles();
   </script>
- 
+
 </body>
 </html>
